@@ -140,14 +140,14 @@ int main()
     float modelToWorld[] = {
         1, 0, 0, 0,
         0, 1, 0, 0,
-        0, 0, 1, -20,
+        0, 0, 1, -5,
         0, 0, 0, 1
     };
 
     float modelToWorld_Room[] = {
         30, 0, 0, 0,
         0, 1, 0, 0,
-        0, 0, 0, 0,
+        0, 0, 30, 0,
         0, 0, 0, 1
     };
 
@@ -292,18 +292,18 @@ int main()
 
 
         //
-        glUseProgram(shaderProgramTriangle);
+        // glUseProgram(shaderProgramTriangle);
 
-        glUniformMatrix4fv(modelToWorldPointer, 1, GL_TRUE, modelToWorld_Room);
-        glUniformMatrix4fv(worldToCameraPointer, 1, GL_TRUE, worldToCamera);
-        glUniformMatrix4fv(projectionPointer, 1, GL_TRUE, projection);
-        glUniformMatrix4fv(toClippingSpacePointer, 1, GL_TRUE, toClippingSpace);
+        // glUniformMatrix4fv(modelToWorldPointer, 1, GL_TRUE, modelToWorld_Room);
+        // glUniformMatrix4fv(worldToCameraPointer, 1, GL_TRUE, worldToCamera);
+        // glUniformMatrix4fv(projectionPointer, 1, GL_TRUE, projection);
+        // glUniformMatrix4fv(toClippingSpacePointer, 1, GL_TRUE, toClippingSpace);
 
 
-        glBindVertexArray(VAO_Triangle);
-        glDrawArrays(GL_TRIANGLES, 0, 24);
+        // glBindVertexArray(VAO_Triangle);
+        // glDrawArrays(GL_TRIANGLES, 0, 24);
 
-        //
+        // //
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

@@ -209,7 +209,7 @@ int main()
                 double delta_x = x - mouse_x;
                 double delta_y = y - mouse_y;
 
-                rotation += delta_x * .001f;
+                rotation -= delta_x * .001f;
             }
             else
             {
@@ -269,7 +269,7 @@ int main()
         worldToCamera[2] = -s;
 
         worldToCamera[8] = s;
-        worldToCamera[8] = c;
+        worldToCamera[10] = c;
 
 
 
@@ -292,16 +292,16 @@ int main()
 
 
         //
-        // glUseProgram(shaderProgramTriangle);
+        glUseProgram(shaderProgramTriangle);
 
-        // glUniformMatrix4fv(modelToWorldPointer, 1, GL_TRUE, modelToWorld_Room);
-        // glUniformMatrix4fv(worldToCameraPointer, 1, GL_TRUE, worldToCamera);
-        // glUniformMatrix4fv(projectionPointer, 1, GL_TRUE, projection);
-        // glUniformMatrix4fv(toClippingSpacePointer, 1, GL_TRUE, toClippingSpace);
+        glUniformMatrix4fv(modelToWorldPointer, 1, GL_TRUE, modelToWorld_Room);
+        glUniformMatrix4fv(worldToCameraPointer, 1, GL_TRUE, worldToCamera);
+        glUniformMatrix4fv(projectionPointer, 1, GL_TRUE, projection);
+        glUniformMatrix4fv(toClippingSpacePointer, 1, GL_TRUE, toClippingSpace);
 
 
-        // glBindVertexArray(VAO_Triangle);
-        // glDrawArrays(GL_TRIANGLES, 0, 24);
+        glBindVertexArray(VAO_Triangle_Room);
+        glDrawArrays(GL_TRIANGLES, 0, 24);
 
         // //
         glfwSwapBuffers(window);
